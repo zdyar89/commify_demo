@@ -21,7 +21,6 @@ C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\scopedcss\Com
 C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\scopedcss\bundle\tax_demo.styles.css
 C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\scopedcss\projectbundle\tax_demo.bundle.scp.css
-C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\j877e9d2hl-khy4lop6wu.gz
 C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\8o9icq4y8b-bqjiyaj88i.gz
 C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\vb5jwnnwdq-c2jlpeoesf.gz
 C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\sas0mtb4ts-erw9l3u2r3.gz
@@ -66,7 +65,6 @@ C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\ub
 C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\jqstpdwu8f-h1s4sie4z3.gz
 C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\ce3picia8k-63fj8s7r0e.gz
 C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\94m243oquo-0j3bgjxly4.gz
-C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\czq1jq3ai1-vge4x6h2xs.gz
 C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\dayrnai139-vge4x6h2xs.gz
 C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\zdyar\Source\Repos\commify_demo\tax_demo\obj\Debug\net9.0\staticwebassets.build.json.cache
@@ -96,3 +94,14 @@ C:\Users\zdyar\source\repos\commify_demo\tax_demo\bin\Debug\net9.0\nunit.framewo
 C:\Users\zdyar\source\repos\commify_demo\tax_demo\bin\Debug\net9.0\nunit.framework.legacy.dll
 C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net9.0\tax_demo.csproj.Up2Date
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\j877e9d2hl-v9pjdekj3w.gz
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\bin\Debug\net9.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\bin\Debug\net9.0\Microsoft.AspNetCore.Components.dll
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\bin\Debug\net9.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\bin\Debug\net9.0\Microsoft.AspNetCore.Components.QuickGrid.dll
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\bin\Debug\net9.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\bin\Debug\net9.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\bin\Debug\net9.0\Microsoft.JSInterop.dll
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\unlu0xluo6-eu7w3d5g1a.gz
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\3gin1ph7ub-25o87uqmvr.gz
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net9.0\compressed\czq1jq3ai1-51fpgd4t1e.gz

@@ -1,0 +1,58 @@
+﻿@page "/calculator"
+@inject NavigationManager NavigationManager
+@inject ILogger<CalculatorInput> Logger
+@using System.ComponentModel.DataAnnotations
+
+
+<PageTitle>Tax Calculator Input</PageTitle>
+
+<h1>Tax Calculator Input</h1>
+
+<EditForm FormName="salary-form"
+    OnInvalidSubmit="HandleInvalidSubmit"
+    OnValidSubmit="HandleValidSubmit"
+    Model="@salary">
+    <DataAnnotationsValidator />
+    <label for="salary-value">Gross Annual Salary: </label>
+    <InputNumber ID="salary-value" @bind-value="salary.SalaryAmount"/>
+    <ValidationMessage For="@(() => salary.SalaryAmount)"></ValidationMessage>
+
+    <button type="submit" class="btn btn-primary">Calculate</button>
+</EditForm>
+
+@code {
+    [SupplyParameterFromForm]
+    private SalaryInfo? salary { get; set; }
+
+    protected override void OnInitialized() => salary ??= new();
+
+    public class SalaryInfo
+    {
+        [Required(ErrorMessage = "A numerical value is required")]
+        [Range(1, int.MaxValue, ErrorMessage = "Salary value must be greater than 0")]
+        public int? SalaryAmount { get; set; }
+    }
+
+    private void HandleInvalidSubmit()
+    {
+        // Triggers when form input has invalid values.
+
+    }
+
+    private void HandleValidSubmit()
+    {
+        // Triggers when form input has valid values.
+
+        try
+        {
+            NavigationManager.NavigateTo($"/result?value={salary.SalaryAmount}");
+        }
+        catch (Microsoft.AspNetCore.Components.NavigationException e)
+        {
+            // NOTE: If executing in Debug mode, you can just continue past the exception.
+            // The exception does not persist outside of Debug mode as a work around
+            Logger.LogError($"Known GitHub Issue w/ NavManager NavigateTo() Method: {e}");
+            NavigationManager.NavigateTo($"/result/{salary.SalaryAmount}", true);
+        }
+    }
+}

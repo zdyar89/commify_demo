@@ -1,0 +1,82 @@
+﻿@page "/result/{value:int}"
+@inject NavigationManager NavigationManager
+@inject ILogger<CalculatorInput> Logger
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.QuickGrid
+
+<PageTitle>Tax Calculator Result</PageTitle>
+
+<h1>Tax Calculator Result</h1>
+
+<EditForm FormName="salary-form"
+          OnInvalidSubmit="HandleInvalidSubmit"
+          OnValidSubmit="HandleValidSubmit"
+          Model="@salary">
+    <DataAnnotationsValidator />
+    <label for="salary-value">Gross Annual Salary: </label>
+    <InputNumber ID="salary-value" @bind-value="salary.SalaryAmount" placeholder="@value"/>
+    <ValidationMessage For="@(() => salary.SalaryAmount)"></ValidationMessage>
+
+    <button type="submit" class="btn btn-primary">Recalculate</button>
+</EditForm>
+
+<QuickGrid Items="@taxItems" title="Tax Breakdown">
+    <PropertyColumn Property="@(item => item.Label)" Title="Description"></PropertyColumn>
+    <PropertyColumn Property="@(item => item.Value)" Title="Description"></PropertyColumn>
+</QuickGrid>
+
+@code {
+    [Parameter]
+    public int value { get; set; }
+
+    [SupplyParameterFromForm]
+    private SalaryInfo? salary { get; set; }
+
+    protected override void OnInitialized() => salary ??= new();
+
+    public class SalaryInfo
+    {
+        [Required(ErrorMessage = "A numerical value is required")]
+        [Range(1, int.MaxValue, ErrorMessage = "Salary value must be greater than 0")]
+        public int? SalaryAmount { get; set; }
+    }
+
+    private void HandleInvalidSubmit()
+    {
+        // Triggers when form input has invalid values.
+
+    }
+
+    private void HandleValidSubmit()
+    {
+        // Triggers when form input has valid values.
+
+        try
+        {
+            NavigationManager.NavigateTo($"/result?value={salary.SalaryAmount}");
+        }
+        catch (Microsoft.AspNetCore.Components.NavigationException e)
+        {
+            // NOTE: If executing in Debug mode, you can just continue past the exception.
+            // The exception does not persist outside of Debug mode as a work around
+            Logger.LogError($"Known GitHub Issue w/ NavManager NavigateTo() Method: {e}");
+            NavigationManager.NavigateTo($"/result/{salary.SalaryAmount}", true);
+        }
+    }
+
+    private IQueryable<TaxItem> taxItems = new List<TaxItem>
+    {
+        new TaxItem { Label = "Gross Annual Salary", Value = 1},
+        new TaxItem { Label = "Gross Monthly Salary", Value = 1},
+        new TaxItem { Label = "Net Annual Salary", Value = 1},
+        new TaxItem { Label = "Net Monthly Salary", Value = 1},
+        new TaxItem { Label = "Annual Tax Paid", Value = 1},
+        new TaxItem { Label = "Monthly Tax Paid", Value = 1},
+    }.AsQueryable();
+
+    public class TaxItem
+    {
+        public string Label { get; set; }
+        public int Value { get; set; }
+    }
+}
