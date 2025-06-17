@@ -1,4 +1,4 @@
-﻿namespace tax_demo.Properties
+﻿namespace tax_demo.Components.Interfaces
 {
      public interface ITaxBreakdown
     {
@@ -9,8 +9,5 @@
          double NetMonthlySalary { get; set; }
          double AnnualTaxPaid { get; set; }
          double MonthlyTaxPaid { get; set; }
-
-        // Methods
-        void CalculateNetSalary(double grossAnnualSalary);
     }
 }

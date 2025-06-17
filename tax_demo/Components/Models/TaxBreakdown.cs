@@ -1,6 +1,9 @@
-﻿namespace tax_demo.Properties
+﻿using tax_demo.Components.Abstractions;
+using tax_demo.Components.Interfaces;
+
+namespace tax_demo.Components.Models
 {
-    public class TaxBreakdown : ITaxBreakdown
+    public class TaxBreakdown : AbstractTaxBreakdown, ITaxBreakdown
     {
         public const int Months = 12;
         public const int ATierTaxUpperBound = 5000;
@@ -17,6 +20,8 @@
         public TaxBreakdown(double grossAnnualSalary, double netAnnualSalary, double annualTaxPaid)
         {
             // Constructor for TaxBreakdown objects
+            CalculateNetSalary(grossAnnualSalary);
+
             GrossAnnualSalary = grossAnnualSalary;
             GrossMonthlySalary = grossAnnualSalary/Months;
             NetAnnualSalary = netAnnualSalary;
@@ -25,7 +30,7 @@
             MonthlyTaxPaid = annualTaxPaid/Months;
         }
 
-        public void CalculateNetSalary(double grossAnnualSalary)
+        public override void CalculateNetSalary(double grossAnnualSalary)
         {
             // Method to calculate salary after taxes
             if(grossAnnualSalary > ATierTaxUpperBound && grossAnnualSalary <= BTierTaxUpperBound)

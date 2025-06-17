@@ -14,7 +14,7 @@
           Model="@salary">
     <DataAnnotationsValidator />
     <label for="salary-value">Gross Annual Salary: </label>
-    <InputNumber ID="salary-value" @bind-value="salary.SalaryAmount" placeholder="@value"/>
+    <InputNumber ID="salary-value" @bind-value="salary.SalaryAmount"/>
     <ValidationMessage For="@(() => salary.SalaryAmount)"></ValidationMessage>
 
     <button type="submit" class="btn btn-primary">Recalculate</button>
