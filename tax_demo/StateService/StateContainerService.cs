@@ -11,13 +11,13 @@
 
 
         // Method to be used by sender component to update state
-        public void SetValue(double? value)
+        public void SetValue(double value)
         {
-            Value = value ?? 0.0;
+            Value = value;
             NotifyStateChanged();
         }
 
         // State change event notification
-        private void NotifyStateChanged() => OnStateChange?.Invoke();
+        private void NotifyStateChanged()=>OnStateChange?.Invoke();
     }
 }

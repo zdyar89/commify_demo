@@ -15,33 +15,37 @@
           Model="@salary">
     <DataAnnotationsValidator />
     <label for="salary-value">Gross Annual Salary: </label>
-    <InputNumber ID="salary-value" @bind-value="salary"></InputNumber>
-    <ValidationMessage For="@(() => salary)"></ValidationMessage>
+    <InputNumber ID="salary-value" @bind-value="salary.SalaryAmount"></InputNumber>
+    <ValidationMessage For="@(() => salary.SalaryAmount)"></ValidationMessage>
+
     <button type="submit" class="btn btn-primary">Recalculate</button>
 </EditForm>
 
 <QuickGrid Items="@taxList" title="Tax Breakdown">
     <PropertyColumn Property="@(item => item.Label)" Title="Description"></PropertyColumn>
-    <PropertyColumn Property="@(item => item.Value)" Title="Description"></PropertyColumn>
+    <PropertyColumn Property="@(item => item.Value.ToString("C", new CultureInfo("en-GB")))" Title="Description"></PropertyColumn>
 </QuickGrid>
 
 @code {
-    private double? salary;
+    [SupplyParameterFromForm]
+    private SalaryInfo? salary { get; set; }
+
     private IQueryable<TaxItem>? taxList;
 
     protected override void OnInitialized()
     {
-        double salary = stateService.Value;
+        double grossSalary = stateService.Value;
 
-        TaxBreakdown taxBreakdown = new TaxBreakdown(salary);
+        TaxBreakdown taxBreakdown = new TaxBreakdown(grossSalary);
         taxList = TaxItemListService.GetTaxList(taxBreakdown);
+        salary ??= new();
     }
 
     public class SalaryInfo
     {
         [Required(ErrorMessage = "A numerical value is required")]
         [Range(1, int.MaxValue, ErrorMessage = "Salary value must be greater than 0")]
-        public double? SalaryAmount { get; set; }
+        public double SalaryAmount { get; set; }
     }
 
     private void HandleInvalidSubmit()

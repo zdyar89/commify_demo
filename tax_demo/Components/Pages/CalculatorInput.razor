@@ -45,6 +45,7 @@
 
         try
         {
+            stateService.SetValue(salary.SalaryAmount);
             NavigationManager.NavigateTo($"/result");
         }
         catch (Microsoft.AspNetCore.Components.NavigationException e)
@@ -52,6 +53,8 @@
             // NOTE: If executing in Debug mode, you can just continue past the exception.
             // The exception does not persist outside of Debug mode as a work around
             Logger.LogError($"Known GitHub Issue w/ NavManager NavigateTo() Method: {e}");
+
+            stateService.SetValue(salary.SalaryAmount);
             NavigationManager.NavigateTo($"/result", true);
         }
     }
