@@ -1,8 +1,8 @@
-﻿@page "/result/{value:int}"
+﻿@page "/result"
+@inject StateService.StateContainerService stateService
+@implements IDisposable
 @inject NavigationManager NavigationManager
 @inject ILogger<CalculatorInput> Logger
-@using System.ComponentModel.DataAnnotations
-@using Microsoft.AspNetCore.Components.QuickGrid
 
 <PageTitle>Tax Calculator Result</PageTitle>
 
@@ -14,8 +14,8 @@
           Model="@salary">
     <DataAnnotationsValidator />
     <label for="salary-value">Gross Annual Salary: </label>
-    <InputNumber ID="salary-value" @bind-value="salary.SalaryAmount"/>
-    <ValidationMessage For="@(() => salary.SalaryAmount)"></ValidationMessage>
+    <InputNumber ID="salary-value" @bind-value="salary"></InputNumber>
+    <ValidationMessage For="@(() => salary)"></ValidationMessage>
 
     <button type="submit" class="btn btn-primary">Recalculate</button>
 </EditForm>
@@ -26,19 +26,22 @@
 </QuickGrid>
 
 @code {
-    [Parameter]
-    public int value { get; set; }
-
     [SupplyParameterFromForm]
-    private SalaryInfo? salary { get; set; }
+    private double salary { get; set; }
 
-    protected override void OnInitialized() => salary ??= new();
+    protected override void OnInitialized()
+    {
+        salary = stateService.Value;
+        TaxBreakdown breakdown = new TaxBreakdown(salary);
+
+
+    }
 
     public class SalaryInfo
     {
         [Required(ErrorMessage = "A numerical value is required")]
         [Range(1, int.MaxValue, ErrorMessage = "Salary value must be greater than 0")]
-        public int? SalaryAmount { get; set; }
+        public double? SalaryAmount { get; set; }
     }
 
     private void HandleInvalidSubmit()
@@ -53,14 +56,14 @@
 
         try
         {
-            NavigationManager.NavigateTo($"/result?value={salary.SalaryAmount}");
+            NavigationManager.NavigateTo($"/result");
         }
         catch (Microsoft.AspNetCore.Components.NavigationException e)
         {
             // NOTE: If executing in Debug mode, you can just continue past the exception.
             // The exception does not persist outside of Debug mode as a work around
             Logger.LogError($"Known GitHub Issue w/ NavManager NavigateTo() Method: {e}");
-            NavigationManager.NavigateTo($"/result/{salary.SalaryAmount}", true);
+            NavigationManager.NavigateTo($"/result", true);
         }
     }
 
@@ -77,6 +80,11 @@
     public class TaxItem
     {
         public string Label { get; set; }
-        public int Value { get; set; }
+        public double Value { get; set; }
+    }
+
+    public void Dispose()
+    {
+        stateService.OnStateChange -= StateHasChanged;
     }
 }

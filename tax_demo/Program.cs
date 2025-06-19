@@ -1,4 +1,5 @@
 using tax_demo.Components;
+using tax_demo.StateService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<StateContainerService>();
 
 var app = builder.Build();
 

@@ -1,8 +1,8 @@
 ﻿@page "/calculator"
+@inject StateService.StateContainerService stateService
+@implements IDisposable
 @inject NavigationManager NavigationManager
 @inject ILogger<CalculatorInput> Logger
-@using System.ComponentModel.DataAnnotations
-
 
 <PageTitle>Tax Calculator Input</PageTitle>
 
@@ -30,7 +30,7 @@
     {
         [Required(ErrorMessage = "A numerical value is required")]
         [Range(1, int.MaxValue, ErrorMessage = "Salary value must be greater than 0")]
-        public int? SalaryAmount { get; set; }
+        public double SalaryAmount { get; set; }
     }
 
     private void HandleInvalidSubmit()
@@ -45,14 +45,19 @@
 
         try
         {
-            NavigationManager.NavigateTo($"/result?value={salary.SalaryAmount}");
+            NavigationManager.NavigateTo($"/result");
         }
         catch (Microsoft.AspNetCore.Components.NavigationException e)
         {
             // NOTE: If executing in Debug mode, you can just continue past the exception.
             // The exception does not persist outside of Debug mode as a work around
             Logger.LogError($"Known GitHub Issue w/ NavManager NavigateTo() Method: {e}");
-            NavigationManager.NavigateTo($"/result/{salary.SalaryAmount}", true);
+            NavigationManager.NavigateTo($"/result", true);
         }
+    }
+
+    public void Dispose()
+    {
+        stateService.OnStateChange -= StateHasChanged;
     }
 }
