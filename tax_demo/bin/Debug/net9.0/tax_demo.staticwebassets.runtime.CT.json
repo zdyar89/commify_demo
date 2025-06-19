@@ -3,7 +3,8 @@
     "/app/wwwroot/",
     "/app/obj/Debug/net9.0/compressed/",
     "/app/obj/Debug/net9.0/scopedcss/bundle/",
-    "/.nuget/fallbackpackages2/microsoft.aspnetcore.components.quickgrid/9.0.6/staticwebassets/"
+    "/.nuget/fallbackpackages2/microsoft.aspnetcore.components.quickgrid/9.0.6/staticwebassets/",
+    "/.nuget/fallbackpackages2/microsoft.aspnetcore.components.webassembly.authentication/9.0.0/staticwebassets/"
   ],
   "Root": {
     "Children": {
@@ -80,6 +81,28 @@
                 "Asset": {
                   "ContentRootIndex": 1,
                   "SubPath": "unlu0xluo6-eu7w3d5g1a.gz"
+                },
+                "Patterns": null
+              }
+            },
+            "Asset": null,
+            "Patterns": null
+          },
+          "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
+            "Children": {
+              "AuthenticationService.js": {
+                "Children": null,
+                "Asset": {
+                  "ContentRootIndex": 4,
+                  "SubPath": "AuthenticationService.js"
+                },
+                "Patterns": null
+              },
+              "AuthenticationService.js.gz": {
+                "Children": null,
+                "Asset": {
+                  "ContentRootIndex": 1,
+                  "SubPath": "f32kn295nz-gcvjxldlff.gz"
                 },
                 "Patterns": null
               }

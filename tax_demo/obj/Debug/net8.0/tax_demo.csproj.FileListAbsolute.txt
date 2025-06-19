@@ -1,0 +1,8 @@
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net8.0\tax_demo.csproj.AssemblyReference.cache
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net8.0\tax_demo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net8.0\tax_demo.AssemblyInfoInputs.cache
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net8.0\tax_demo.AssemblyInfo.cs
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net8.0\tax_demo.csproj.CoreCompileInputs.cache
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net8.0\tax_demo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\zdyar\source\repos\commify_demo\tax_demo\obj\Debug\net8.0\tax_demo.sourcelink.json
