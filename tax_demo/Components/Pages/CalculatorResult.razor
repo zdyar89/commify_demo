@@ -1,6 +1,7 @@
 ﻿@page "/result"
 @inject StateService.StateContainerService stateService
 @implements IDisposable
+@inject TaxItemListService TaxItemListService
 @inject NavigationManager NavigationManager
 @inject ILogger<CalculatorInput> Logger
 
@@ -16,25 +17,24 @@
     <label for="salary-value">Gross Annual Salary: </label>
     <InputNumber ID="salary-value" @bind-value="salary"></InputNumber>
     <ValidationMessage For="@(() => salary)"></ValidationMessage>
-
     <button type="submit" class="btn btn-primary">Recalculate</button>
 </EditForm>
 
-<QuickGrid Items="@taxItems" title="Tax Breakdown">
+<QuickGrid Items="@taxList" title="Tax Breakdown">
     <PropertyColumn Property="@(item => item.Label)" Title="Description"></PropertyColumn>
     <PropertyColumn Property="@(item => item.Value)" Title="Description"></PropertyColumn>
 </QuickGrid>
 
 @code {
-    [SupplyParameterFromForm]
-    private double salary { get; set; }
+    private double? salary;
+    private IQueryable<TaxItem>? taxList;
 
     protected override void OnInitialized()
     {
-        salary = stateService.Value;
-        TaxBreakdown breakdown = new TaxBreakdown(salary);
+        double salary = stateService.Value;
 
-
+        TaxBreakdown taxBreakdown = new TaxBreakdown(salary);
+        taxList = TaxItemListService.GetTaxList(taxBreakdown);
     }
 
     public class SalaryInfo
@@ -65,22 +65,6 @@
             Logger.LogError($"Known GitHub Issue w/ NavManager NavigateTo() Method: {e}");
             NavigationManager.NavigateTo($"/result", true);
         }
-    }
-
-    private IQueryable<TaxItem> taxItems = new List<TaxItem>
-    {
-        new TaxItem { Label = "Gross Annual Salary", Value = 1},
-        new TaxItem { Label = "Gross Monthly Salary", Value = 1},
-        new TaxItem { Label = "Net Annual Salary", Value = 1},
-        new TaxItem { Label = "Net Monthly Salary", Value = 1},
-        new TaxItem { Label = "Annual Tax Paid", Value = 1},
-        new TaxItem { Label = "Monthly Tax Paid", Value = 1},
-    }.AsQueryable();
-
-    public class TaxItem
-    {
-        public string Label { get; set; }
-        public double Value { get; set; }
     }
 
     public void Dispose()

@@ -2,13 +2,11 @@
 
 namespace tax_demo.Components.Models
 {
-    // Composite class object for tax items and their labels
-    public class TaxList
+    // Composite class service for TaxBreakdown and TaxItem objects
+    public class TaxItemListService
     {
-        // Class props
-        public IQueryable<TaxItem> TaxItems { get; set; }
-
-        public TaxList(TaxBreakdown taxBreakdown)
+        // Method to aggregate a TaxItemList
+        public IQueryable<TaxItem> GetTaxList(TaxBreakdown taxBreakdown)
         {
             // Constructor for TaxList objects
             IQueryable<TaxItem> taxItems = new List<TaxItem>
@@ -21,7 +19,7 @@ namespace tax_demo.Components.Models
             new TaxItem { Label = "Monthly Tax Paid", Value = taxBreakdown.MonthlyTaxPaid},
             }.AsQueryable();
 
-            TaxItems = taxItems;
+            return taxItems;
         }
     }
 }

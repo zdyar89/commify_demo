@@ -1,12 +1,12 @@
 ﻿namespace tax_demo.StateService
 {
+    // Service to handle state container data
     public class StateContainerService
     {
         // State property with initial value
         public double Value { get; set; } = 0;
 
         // Event to be raised for state change
-        
         public event Action OnStateChange;
 
 
