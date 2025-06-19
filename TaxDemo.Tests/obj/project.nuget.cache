@@ -1,28 +1,56 @@
 {
   "version": 2,
-  "dgSpecHash": "JJYjLiUzaAI=",
-  "success": true,
+  "dgSpecHash": "JJeyxLuXqW0=",
+  "success": false,
   "projectFilePath": "C:\\Users\\zdyar\\source\\repos\\commify_demo\\TaxDemo.Tests\\TaxDemo.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zdyar\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
-    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.aspnetcore.authorization\\9.0.6\\microsoft.aspnetcore.authorization.9.0.6.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.aspnetcore.components\\9.0.6\\microsoft.aspnetcore.components.9.0.6.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\9.0.6\\microsoft.aspnetcore.components.analyzers.9.0.6.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\9.0.6\\microsoft.aspnetcore.components.forms.9.0.6.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\9.0.6\\microsoft.aspnetcore.components.quickgrid.9.0.6.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.aspnetcore.components.web\\9.0.6\\microsoft.aspnetcore.components.web.9.0.6.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.aspnetcore.metadata\\9.0.6\\microsoft.aspnetcore.metadata.9.0.6.nupkg.sha512",
     "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.codecoverage\\17.12.0\\microsoft.codecoverage.17.12.0.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.1\\microsoft.entityframeworkcore.9.0.1.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.1\\microsoft.entityframeworkcore.abstractions.9.0.1.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.1\\microsoft.entityframeworkcore.analyzers.9.0.1.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.1\\microsoft.entityframeworkcore.relational.9.0.1.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.1\\microsoft.extensions.caching.abstractions.9.0.1.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.1\\microsoft.extensions.caching.memory.9.0.1.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.1\\microsoft.extensions.configuration.abstractions.9.0.1.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.6\\microsoft.extensions.dependencyinjection.9.0.6.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.6\\microsoft.extensions.dependencyinjection.abstractions.9.0.6.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.extensions.logging\\9.0.1\\microsoft.extensions.logging.9.0.1.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.6\\microsoft.extensions.logging.abstractions.9.0.6.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.extensions.options\\9.0.6\\microsoft.extensions.options.9.0.6.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.6\\microsoft.extensions.primitives.9.0.6.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.jsinterop\\9.0.6\\microsoft.jsinterop.9.0.6.nupkg.sha512",
     "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.net.test.sdk\\17.12.0\\microsoft.net.test.sdk.17.12.0.nupkg.sha512",
-    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.playwright\\1.52.0\\microsoft.playwright.1.52.0.nupkg.sha512",
-    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.playwright.nunit\\1.45.1\\microsoft.playwright.nunit.1.45.1.nupkg.sha512",
-    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.playwright.testadapter\\1.45.1\\microsoft.playwright.testadapter.1.45.1.nupkg.sha512",
     "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.12.0\\microsoft.testplatform.objectmodel.17.12.0.nupkg.sha512",
     "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.testplatform.testhost\\17.12.0\\microsoft.testplatform.testhost.17.12.0.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.22.1-preview.1\\microsoft.visualstudio.azure.containers.tools.targets.1.22.1-preview.1.nupkg.sha512",
     "C:\\Users\\zdyar\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512",
+    "C:\\Users\\zdyar\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\9.0.4\\npgsql.entityframeworkcore.postgresql.9.0.4.nupkg.sha512",
     "C:\\Users\\zdyar\\.nuget\\packages\\nunit\\4.2.2\\nunit.4.2.2.nupkg.sha512",
     "C:\\Users\\zdyar\\.nuget\\packages\\nunit.analyzers\\4.4.0\\nunit.analyzers.4.4.0.nupkg.sha512",
     "C:\\Users\\zdyar\\.nuget\\packages\\nunit3testadapter\\4.6.0\\nunit3testadapter.4.6.0.nupkg.sha512",
     "C:\\Users\\zdyar\\.nuget\\packages\\selenium.webdriver\\4.33.0\\selenium.webdriver.4.33.0.nupkg.sha512",
-    "C:\\Users\\zdyar\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
-    "C:\\Users\\zdyar\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
-    "C:\\Users\\zdyar\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\zdyar\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
-    "C:\\Users\\zdyar\\.nuget\\packages\\system.text.json\\6.0.10\\system.text.json.6.0.10.nupkg.sha512"
+    "C:\\Users\\zdyar\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: NUnit from 4.3.2 to 4.2.2. Reference the package directly from the project to select a different version. \r\n TaxDemo.Tests -> tax_demo -> NUnit (>= 4.3.2) \r\n TaxDemo.Tests -> NUnit (>= 4.2.2)",
+      "projectPath": "C:\\Users\\zdyar\\source\\repos\\commify_demo\\TaxDemo.Tests\\TaxDemo.Tests.csproj",
+      "filePath": "C:\\Users\\zdyar\\source\\repos\\commify_demo\\TaxDemo.Tests\\TaxDemo.Tests.csproj",
+      "libraryId": "NUnit",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }

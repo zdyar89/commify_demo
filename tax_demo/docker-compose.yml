@@ -5,7 +5,7 @@ services:
     container_name: tax_demo
     build: .
     ports:
-      - 8080:8080
+      - 32777:32777
     depends_on:
       - "db"
   db:
