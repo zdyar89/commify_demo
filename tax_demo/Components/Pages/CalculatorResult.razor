@@ -50,13 +50,15 @@
 
     private void HandleInvalidSubmit()
     {
-        // Triggers when form input has invalid values.
+        // Triggers when EditForm input has invalid values.
 
+        Logger.LogError("Invalid Submission Triggered By User");
+        NavigationManager.NavigateTo($"/Error");
     }
 
     private void HandleValidSubmit()
     {
-        // Triggers when form input has valid values.
+        // Triggers when EditForm input has valid values.
 
         try
         {

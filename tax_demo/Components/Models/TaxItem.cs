@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace tax_demo.Components.Models
+﻿namespace tax_demo.Components.Models
 {
     // Class object for tax item labeling
     public class TaxItem

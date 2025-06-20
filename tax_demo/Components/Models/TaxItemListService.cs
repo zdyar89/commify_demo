@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace tax_demo.Components.Models
+﻿namespace tax_demo.Components.Models
 {
     // Composite class service for TaxBreakdown and TaxItem objects
     public class TaxItemListService
