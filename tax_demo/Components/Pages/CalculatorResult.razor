@@ -16,9 +16,9 @@
           OnValidSubmit="HandleValidSubmit"
           Model="@salary">
     <DataAnnotationsValidator />
+    <ValidationSummary />
     <label for="salary-value">Gross Annual Salary: </label>
     <InputNumber ID="salary-value" @bind-value="salary.SalaryAmount"></InputNumber>
-    <ValidationMessage For="@(() => salary.SalaryAmount)"></ValidationMessage>
 
     <button type="submit" class="btn btn-primary">Recalculate</button>
 </EditForm>
@@ -32,6 +32,8 @@
     [SupplyParameterFromForm]
     private SalaryInfo? salary { get; set; }
 
+    private string? formErrorMessage;
+
     private IQueryable<TaxItem>? taxList;
 
     protected override void OnInitialized()
@@ -39,7 +41,7 @@
         double grossSalary = stateService.Value;
 
         ITaxForm taxBreakdown = new TaxBreakdown(grossSalary);
-        taxBreakdown.CalculateTaxItemization(grossSalary);
+        taxBreakdown.CalculateTaxItemization();
         taxList = TaxItemListService.GetTaxList(taxBreakdown);
 
         salary ??= new();
@@ -47,17 +49,20 @@
 
     public class SalaryInfo
     {
-        [Required(ErrorMessage = "A numerical value is required")]
+        [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Salary value must be greater than 0")]
         public double SalaryAmount { get; set; }
     }
 
-    private void HandleInvalidSubmit()
+    private void HandleInvalidSubmit(EditContext editContext)
     {
         // Triggers when EditForm input has invalid values.
 
+        formErrorMessage = "The salary field cannot be left blank";
+        var validationErrorMessages = new ValidationMessageStore(editContext);
+        validationErrorMessages.Clear();
+        validationErrorMessages.Add(() => salary, formErrorMessage);
         Logger.LogError("Invalid Submission Triggered By User");
-        NavigationManager.NavigateTo($"/Error");
     }
 
     private void HandleValidSubmit()
@@ -66,14 +71,20 @@
 
         try
         {
-            NavigationManager.NavigateTo($"/result");
+            stateService.SetValue(salary.SalaryAmount);
+            double grossSalary = stateService.Value;
+
+            ITaxForm taxBreakdown = new TaxBreakdown(grossSalary);
+            taxBreakdown.CalculateTaxItemization();
+            taxList = TaxItemListService.GetTaxList(taxBreakdown);
+
+            salary ??= new();
         }
         catch (Microsoft.AspNetCore.Components.NavigationException e)
         {
             // NOTE: If executing in Debug mode, you can just continue past the exception.
             // The exception does not persist outside of Debug mode as a work around
             Logger.LogError($"Known GitHub Issue w/ NavManager NavigateTo() Method: {e}");
-            NavigationManager.NavigateTo($"/result", true);
         }
     }
 

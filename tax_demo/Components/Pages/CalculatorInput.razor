@@ -14,32 +14,41 @@
     OnValidSubmit="HandleValidSubmit"
     Model="@salary">
     <DataAnnotationsValidator />
+    <ValidationSummary />
     <label for="salary-value">Gross Annual Salary: </label>
     <InputNumber ID="salary-value" @bind-value="salary.SalaryAmount"/>
-    <ValidationMessage For="@(() => salary.SalaryAmount)"></ValidationMessage>
 
     <button type="submit" class="btn btn-primary">Calculate</button>
 </EditForm>
 
 @code {
     [SupplyParameterFromForm]
-    private SalaryInfo? salary { get; set; }
+    protected SalaryInfo? salary { get; set; }
 
-    protected override void OnInitialized() => salary ??= new();
+    private string? formErrorMessage;
+
+    protected override void OnInitialized()
+    {
+        salary ??= new();
+    }
 
     public class SalaryInfo
     {
-        [Required(ErrorMessage = "A numerical value is required")]
-        [Range(1, int.MaxValue, ErrorMessage = "Salary value must be greater than 0")]
+        [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "A numerical value is required and must be greater than 0")]
         public double SalaryAmount { get; set; }
     }
 
-    private void HandleInvalidSubmit()
+    private void HandleInvalidSubmit(EditContext editContext)
     {
         // Triggers when EditForm input has invalid values.
 
+        formErrorMessage = "The salary field cannot be left blank";
+        var validationErrorMessages = new ValidationMessageStore(editContext);
+        validationErrorMessages.Clear();
+        validationErrorMessages.Add(() => salary, formErrorMessage);
+
         Logger.LogError("Invalid Submission Triggered By User");
-        NavigationManager.NavigateTo($"/Error");
     }
 
     private void HandleValidSubmit()

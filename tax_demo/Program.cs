@@ -9,6 +9,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<StateContainerService>();
 builder.Services.AddScoped<TaxItemListService>();
+builder.Services.AddLogging();
 
 var app = builder.Build();
 

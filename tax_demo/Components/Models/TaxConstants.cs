@@ -3,6 +3,7 @@
     public static class TaxConstants
     {
         // Constant tax bracket values for calculations
+
         public const int Months = 12;
 
         public const int ATierTaxUpperBound = 5000;
