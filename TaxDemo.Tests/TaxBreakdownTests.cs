@@ -1,18 +1,21 @@
 ﻿using NUnit.Framework.Internal;
-using tax_demo.Components.Interfaces;
+using TaxDemo.Tests.TestSetups;
 using tax_demo.Components.Models;
+using tax_demo.Components.Interfaces;
 
 namespace TaxDemo.Tests
 {
-    [TestFixture(typeof(TaxBreakdown))]
-    public class TaxBreakdownTests<T> where T : ITaxBreakdown, new()
-    {
+    [TestFixture]
+    public class TaxBreakdownTests<ITaxForm> : TestTaxFormBase<ITaxForm>
+    {   
+        // TaxBreakdown data object tests
         
-        public const double testGrossAnnualSalaryATier = 5000.00;
-        public const double testGrossAnnualSalaryBTier = 20000.00;
-        public const double testGrossAnnualSalaryCTier = 40000.00;
-        
-        //[Test]
-        //public void CalculateATierTax()
+        [Test]
+        public void CalculateATierTax()
+        {
+            taxBreakdown.GrossAnnualSalary = testGrossAnnualSalaryATier;
+            taxBreakdown.CalculateTaxItemization();
+            Assert.Equals(taxBreakdown.AnnualTaxPaid, 0);
+        }
     }
 }

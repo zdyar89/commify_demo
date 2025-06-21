@@ -1,10 +1,13 @@
-﻿namespace tax_demo.Components.Models
+﻿using tax_demo.Components.Interfaces;
+using tax_demo.Components.Models;
+
+namespace tax_demo.Components.Services
 {
     // Composite class service for TaxBreakdown and TaxItem objects
     public class TaxItemListService
     {
         // Method to aggregate a TaxItemList
-        public IQueryable<TaxItem> GetTaxList(TaxBreakdown taxBreakdown)
+        public IQueryable<TaxItem> GetTaxList(ITaxForm taxBreakdown)
         {
             // Constructor for TaxList objects
             IQueryable<TaxItem> taxItems = new List<TaxItem>

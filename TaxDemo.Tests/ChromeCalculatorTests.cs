@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using TaxDemo.Tests.TestSetups;
 
 
@@ -9,6 +8,7 @@ namespace TaxDemo.Tests
     public class ChromeCalculatorTests : TestWebDriverBase
     {
         // Chrome selenium tests for app calculator page
+
         [Test]
         public void CheckPageTitle()
         {

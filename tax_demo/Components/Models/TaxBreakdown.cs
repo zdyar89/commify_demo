@@ -1,10 +1,9 @@
-﻿using tax_demo.Components.Abstractions;
-using tax_demo.Components.Interfaces;
+﻿using tax_demo.Components.Interfaces;
 
 namespace tax_demo.Components.Models
 {
     // Class object for our tax data container
-    public class TaxBreakdown : AbstractTaxBreakdown, ITaxBreakdown
+    public class TaxBreakdown : ITaxForm
     {
         // Class props
         public double GrossAnnualSalary { get; set; }
@@ -17,36 +16,37 @@ namespace tax_demo.Components.Models
         public TaxBreakdown(double grossAnnualSalary)
         {
             // Constructor for TaxBreakdown objects
-            GrossAnnualSalary = grossAnnualSalary;
-            CalculateNetSalary(this.GrossAnnualSalary);
 
-            GrossMonthlySalary = grossAnnualSalary/TaxConstants.Months;
-            NetMonthlySalary = NetAnnualSalary/TaxConstants.Months;
-            MonthlyTaxPaid = AnnualTaxPaid/TaxConstants.Months;
+            GrossAnnualSalary = grossAnnualSalary;
         }
 
-        public override void CalculateNetSalary(double grossAnnualSalary)
+        public void CalculateTaxItemization()
         {
             // Method to calculate net annual salary and total annual taxes
-            if(grossAnnualSalary > TaxConstants.ATierTaxUpperBound && grossAnnualSalary <= TaxConstants.BTierTaxUpperBound)
+
+            GrossMonthlySalary = GrossAnnualSalary / TaxConstants.Months;
+
+            if (GrossAnnualSalary > TaxConstants.ATierTaxUpperBound && GrossAnnualSalary <= TaxConstants.BTierTaxUpperBound)
             {
-                double taxableAmountBTier = grossAnnualSalary - TaxConstants.ATierTaxUpperBound;
+                double taxableAmountBTier = GrossAnnualSalary - TaxConstants.ATierTaxUpperBound;
                 double bTierTaxes = taxableAmountBTier * TaxConstants.ATierTaxRate;
 
                 AnnualTaxPaid = bTierTaxes;
-                NetAnnualSalary = grossAnnualSalary - AnnualTaxPaid;
+                NetAnnualSalary = GrossAnnualSalary - AnnualTaxPaid;
             }
-            else if (grossAnnualSalary > TaxConstants.BTierTaxUpperBound)
+            else if (GrossAnnualSalary > TaxConstants.BTierTaxUpperBound)
             {
-                double taxableAmountBTier = grossAnnualSalary - TaxConstants.ATierTaxUpperBound;
-                double taxableAmountCTier = grossAnnualSalary - TaxConstants.BTierTaxUpperBound;
+                double taxableAmountBTier = TaxConstants.BTierTaxUpperBound - TaxConstants.ATierTaxUpperBound;
+                double taxableAmountCTier = GrossAnnualSalary - TaxConstants.BTierTaxUpperBound;
 
                 double bTierTaxes = taxableAmountBTier * TaxConstants.ATierTaxRate;
                 double cTierTaxes = taxableAmountCTier * TaxConstants.BTierTaxRate;
 
                 AnnualTaxPaid = bTierTaxes + cTierTaxes;
-                NetAnnualSalary = grossAnnualSalary - AnnualTaxPaid;
-                Console.WriteLine("test");
+                MonthlyTaxPaid = AnnualTaxPaid / TaxConstants.Months;
+
+                NetAnnualSalary = GrossAnnualSalary - AnnualTaxPaid;
+                NetMonthlySalary = NetAnnualSalary / TaxConstants.Months;
             }
         }
     }

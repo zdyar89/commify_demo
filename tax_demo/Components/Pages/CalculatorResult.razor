@@ -1,5 +1,7 @@
 ﻿@page "/result"
-@inject StateService.StateContainerService stateService
+@using tax_demo.Components.Interfaces
+@using tax_demo.Components.Services
+@inject StateContainerService stateService
 @implements IDisposable
 @inject TaxItemListService TaxItemListService
 @inject NavigationManager NavigationManager
@@ -36,8 +38,10 @@
     {
         double grossSalary = stateService.Value;
 
-        TaxBreakdown taxBreakdown = new TaxBreakdown(grossSalary);
+        ITaxForm taxBreakdown = new TaxBreakdown(grossSalary);
+        taxBreakdown.CalculateTaxItemization(grossSalary);
         taxList = TaxItemListService.GetTaxList(taxBreakdown);
+
         salary ??= new();
     }
 

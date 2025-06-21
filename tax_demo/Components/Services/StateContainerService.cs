@@ -1,4 +1,4 @@
-﻿namespace tax_demo.StateService
+﻿namespace tax_demo.Components.Services
 {
     // Service to handle state container data
     public class StateContainerService

@@ -1,5 +1,6 @@
 ﻿@page "/calculator"
-@inject StateService.StateContainerService stateService
+@using tax_demo.Components.Services
+@inject StateContainerService stateService
 @implements IDisposable
 @inject NavigationManager NavigationManager
 @inject ILogger<CalculatorInput> Logger
