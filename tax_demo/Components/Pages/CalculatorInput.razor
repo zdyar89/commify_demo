@@ -45,7 +45,6 @@
 
         formErrorMessage = "The salary field cannot be left blank";
         var validationErrorMessages = new ValidationMessageStore(editContext);
-        validationErrorMessages.Clear();
         validationErrorMessages.Add(() => salary, formErrorMessage);
 
         Logger.LogError("Invalid Submission Triggered By User");

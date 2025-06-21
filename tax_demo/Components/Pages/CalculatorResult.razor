@@ -60,7 +60,6 @@
 
         formErrorMessage = "The salary field cannot be left blank";
         var validationErrorMessages = new ValidationMessageStore(editContext);
-        validationErrorMessages.Clear();
         validationErrorMessages.Add(() => salary, formErrorMessage);
         Logger.LogError("Invalid Submission Triggered By User");
     }
@@ -80,11 +79,9 @@
 
             salary ??= new();
         }
-        catch (Microsoft.AspNetCore.Components.NavigationException e)
+        catch (Exception e)
         {
-            // NOTE: If executing in Debug mode, you can just continue past the exception.
-            // The exception does not persist outside of Debug mode as a work around
-            Logger.LogError($"Known GitHub Issue w/ NavManager NavigateTo() Method: {e}");
+            Logger.LogError($"An error has occurred for retrieving the taxList data object: {e}")
         }
     }
 

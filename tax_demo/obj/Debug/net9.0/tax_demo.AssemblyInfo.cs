@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("tax_demo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2763ca48acec020910afb090dd8e926c9eba149")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2acdc49ea879161ec3c7aad462bbfc794ee4651")]
 [assembly: System.Reflection.AssemblyProductAttribute("tax_demo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("tax_demo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

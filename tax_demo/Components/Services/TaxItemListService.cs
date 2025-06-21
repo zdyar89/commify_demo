@@ -31,7 +31,7 @@ namespace tax_demo.Components.Services
             }
             catch (Exception e)
             {
-                _logger.LogError($"An error has occurred for CalculateTaxItemization(): {e}");
+                _logger.LogError($"An error has occurred for GetTaxList(): {e}");
             }
 
             return TaxItems;
