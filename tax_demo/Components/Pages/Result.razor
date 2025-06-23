@@ -5,7 +5,9 @@
 @implements IDisposable
 @inject TaxItemListService TaxItemListService
 @inject NavigationManager NavigationManager
-@inject ILogger<CalculatorInput> Logger
+@inject ILogger<Result> Logger
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
 
 <PageTitle>Tax Calculator Result</PageTitle>
 
@@ -81,7 +83,7 @@
         }
         catch (Exception e)
         {
-            Logger.LogError($"An error has occurred for retrieving the taxList data object: {e}")
+            Logger.LogError($"An error has occurred for retrieving the taxList data object: {e}");
         }
     }
 

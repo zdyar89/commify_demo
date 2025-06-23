@@ -3,7 +3,10 @@
 @inject StateContainerService stateService
 @implements IDisposable
 @inject NavigationManager NavigationManager
-@inject ILogger<CalculatorInput> Logger
+@inject ILogger<Input> Logger
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
 
 <PageTitle>Tax Calculator Input</PageTitle>
 

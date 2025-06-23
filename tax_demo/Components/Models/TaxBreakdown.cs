@@ -37,7 +37,10 @@ namespace tax_demo.Components.Models
                     double bTierTaxes = taxableAmountBTier * TaxConstants.ATierTaxRate;
 
                     AnnualTaxPaid = bTierTaxes;
+                    MonthlyTaxPaid = AnnualTaxPaid / TaxConstants.Months;
+
                     NetAnnualSalary = GrossAnnualSalary - AnnualTaxPaid;
+                    NetMonthlySalary = NetAnnualSalary / TaxConstants.Months;
                 }
                 else if (GrossAnnualSalary > TaxConstants.BTierTaxUpperBound)
                 {
