@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework.Internal;
 using TaxDemo.Tests.TestSetups;
-using tax_demo.Components.Models;
-using tax_demo.Components.Interfaces;
+using TaxDemo.Components.Models;
+using TaxDemo.Components.Interfaces;
 
 namespace TaxDemo.Tests
 {

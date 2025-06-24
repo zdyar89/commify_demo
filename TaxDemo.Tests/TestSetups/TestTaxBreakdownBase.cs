@@ -1,4 +1,4 @@
-﻿using tax_demo.Components.Models;
+﻿using TaxDemo.Components.Models;
 
 
 namespace TaxDemo.Tests.TestSetups

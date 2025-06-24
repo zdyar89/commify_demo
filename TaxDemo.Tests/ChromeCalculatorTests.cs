@@ -14,6 +14,7 @@ namespace TaxDemo.Tests
         {
             var title = driverCalculatorPage.FindElement(By.TagName("h1"));
             string titleText = title.Text;
+            Console.WriteLine(titleText);
             Assert.That("Tax Calculator Input" == titleText);
         }
 
