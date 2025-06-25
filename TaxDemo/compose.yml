@@ -8,25 +8,15 @@ services:
       - 1433:1433
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=Sam!102589
+      - SA_PASSWORD=<PlaceHolder>
     restart: always
     hostname: taxdemoserver
 
   identitycontextdb:
     image: mcr.microsoft.com/mssql-tools:latest
     restart: no
-    command: "/opt/mssql-tools/bin/sqlcmd -S taxdemoserver -l 60 -U sa -P Sam!102589 -d master -i /tmp/IdentityContextDB-init.sql"
+    command: "/opt/mssql-tools/bin/sqlcmd -S taxdemoserver -l 60 -U sa -P <PlaceHolder> -d master -i /tmp/IdentityContextDB-init.sql"
     depends_on:
         - sqlserver
     volumes:
         - ./IdentityContextDB-init.sql:/tmp/IdentityContextDB-init.sql
-  
-  #app:
-  #  container_name: TaxDemo
-  #  build:
-  #    context: .
-  #    dockerfile: Dockerfile
-  #  ports:
-  #    - 8080:8080
-  #  depends_on:
-  #    - identitycontextdb

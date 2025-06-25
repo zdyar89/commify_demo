@@ -22,7 +22,7 @@
     <label for="salary-value">Gross Annual Salary: </label>
     <InputNumber ID="salary-value" @bind-value="salary.SalaryAmount"></InputNumber>
 
-    <button type="submit" class="btn btn-primary">Recalculate</button>
+    <button type="submit" class="btn btn-primary" id="recalculate-button">Recalculate</button>
 </EditForm>
 
 <QuickGrid Items="@taxList" title="Tax Breakdown">

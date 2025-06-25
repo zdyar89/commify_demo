@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using TaxDemo.Tests.TestSetups;
 
 
@@ -8,34 +9,39 @@ namespace TaxDemo.Tests
     public class ChromeResultTests : TestWebDriverBase
     {
         // Chrome selenium tests for app result page
+        protected ChromeDriver ResultDriver => Driver;
 
         [Test]
         public void CheckPageTitle()
         {
-            var title = driverResultPage.FindElement(By.TagName("h1"));
+            ResultDriver.Navigate().GoToUrl(ResultURL);
+            var title = ResultDriver.FindElement(By.TagName("h1"));
             string titleText = title.Text;
-            Console.WriteLine(titleText);
             Assert.That("Tax Calculator Result" == titleText);
         }
 
         [Test]
         public void CheckSalaryFieldExists()
         {
-            var salaryField = driverResultPage.FindElement(By.Id("salary-value"));
+            ResultDriver.Navigate().GoToUrl(ResultURL);
+            var salaryField = ResultDriver.FindElement(By.Id("salary-value"));
             Assert.That(salaryField != null);
         }
 
         [Test]
         public void CheckRecalculationButtonExists()
         {
-            var calculationButton = driverResultPage.FindElement(By.TagName("button"));
-            Assert.That(calculationButton != null);
+            ResultDriver.Navigate().GoToUrl(ResultURL);
+            var recalculationButton = ResultDriver.FindElement(By.Id("recalculate-button"));
+            var buttonText = recalculationButton.Text;
+            Assert.That("Recalculate" == buttonText);
         }
 
         [Test]
         public void CheckTaxBreakdownTableExists()
         {
-            var salaryField = driverResultPage.FindElement(By.ClassName("quickgrid"));
+            ResultDriver.Navigate().GoToUrl(ResultURL);
+            var salaryField = ResultDriver.FindElement(By.TagName("table"));
             Assert.That(salaryField != null);
         }
     }
