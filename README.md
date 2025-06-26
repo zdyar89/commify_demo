@@ -46,4 +46,5 @@
 
 - Register with an example email and password, click the confirmation hyperlink in the account confirmation page and the site pages will be accessible afterwards.
 
-- If you wish to run the tests project, the TaxDemo.Tests/TestSetups/TestWebDriverBase.cs has two placeholder passwords for the user and conn string, adjust accordingly and port numbers as well.
+- If you wish to run the tests project, the TaxDemo.Tests/TestSetups/TestWebDriverBase.cs has two placeholder passwords for the user and conn string, adjust accordingly and port numbers as well*
+* If tests for the webdriver cannot locate the localhost address, check which port the app is defaulting to when launching w/o debugging and use that port in the TestWebDriverBase.CS file.
