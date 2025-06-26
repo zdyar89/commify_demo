@@ -31,7 +31,12 @@ namespace TaxDemo.Components.Models
             {
                 GrossMonthlySalary = GrossAnnualSalary / TaxConstants.Months;
 
-                if (GrossAnnualSalary > TaxConstants.ATierTaxUpperBound && GrossAnnualSalary <= TaxConstants.BTierTaxUpperBound)
+                if(GrossAnnualSalary <= TaxConstants.ATierTaxUpperBound)
+                {
+                    NetAnnualSalary = GrossAnnualSalary;
+                    NetMonthlySalary = NetAnnualSalary / TaxConstants.Months;
+                }
+                else if (GrossAnnualSalary > TaxConstants.ATierTaxUpperBound && GrossAnnualSalary <= TaxConstants.BTierTaxUpperBound)
                 {
                     double taxableAmountBTier = GrossAnnualSalary - TaxConstants.ATierTaxUpperBound;
                     double bTierTaxes = taxableAmountBTier * TaxConstants.ATierTaxRate;

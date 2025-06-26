@@ -5,9 +5,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TaxDemo.Components.Account;
 using TaxDemo.Data;
-using dotenv.net;
-
-DotEnv.Load();
 
 
 var builder = WebApplication.CreateBuilder(args);

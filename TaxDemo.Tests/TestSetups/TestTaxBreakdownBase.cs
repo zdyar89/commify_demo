@@ -1,22 +1,33 @@
-﻿using TaxDemo.Components.Models;
+﻿using Microsoft.Extensions.Logging;
+using TaxDemo.Components.Models;
 
 
 namespace TaxDemo.Tests.TestSetups
 {
-    [TestFixture(typeof(TaxBreakdown))]
-    public class TestTaxFormBase<ITaxForm>
+    [SetUpFixture]
+    public class TestTaxFormBase
     {
         // Base setup class for TaxForm tests
 
-        protected double testGrossAnnualSalaryATier = TaxConstants.ATierTaxUpperBound;
-        protected double testGrossAnnualSalaryBTier = TaxConstants.BTierTaxUpperBound;
+        protected ILogger _logger;
 
-        protected TaxBreakdown taxBreakdown = new TaxBreakdown(0);
+        protected double TestGrossAnnualSalaryATier = TaxConstants.ATierTaxUpperBound;
+        protected double TestGrossAnnualSalaryBTier = TaxConstants.BTierTaxUpperBound;
 
-        [SetUp]
+        public TaxBreakdown Breakdown;
+
+        [OneTimeSetUp]
         public void Setup()
         {
-            
+            _logger = new LoggerFactory().CreateLogger("Test");
+
+            Breakdown = new TaxBreakdown(0);
+        }
+
+        [OneTimeTearDown]
+        public void Teardown()
+        {
+        
         }
     }
 }
