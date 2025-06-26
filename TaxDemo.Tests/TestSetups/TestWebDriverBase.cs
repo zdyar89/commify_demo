@@ -18,10 +18,11 @@ namespace TaxDemo.Tests.TestSetups
 
         protected string TestEmail = "testUser01@testprovider01.com";
         protected string TestPassword = "<PlaceHolder>";
-        protected string RegistrationURL = "https://localhost:44345/Account/Register";
-        protected string LoginURL = "https://localhost:44345/Account/Login";
-        protected string CalculatorURL = "https://localhost:44345/calculator";
-        protected string ResultURL = "https://localhost:44345/result";
+        protected static int AppPortNumber = 44345;
+        protected string RegistrationURL = $"https://localhost:{AppPortNumber}/Account/Register";
+        protected string LoginURL = $"https://localhost:{AppPortNumber}/Account/Login";
+        protected string CalculatorURL = $"https://localhost:{AppPortNumber}/calculator";
+        protected string ResultURL = $"https://localhost:{AppPortNumber}/result";
         protected string DeleteTestUserFile = "DeleteTestUserAccount.sql";
 
         private const string TestConnectionString = "Server=localhost,1433;Database=IdentityContext;User ID=sa;Password=<PlaceHolder>;Persist Security Info=False;TrustServerCertificate=true;";
