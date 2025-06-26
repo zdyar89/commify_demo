@@ -10,17 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Components\NewFolder1\**" />
-    <Compile Remove="TaxDemo.BUnitTests\**" />
-    <Content Remove="Components\NewFolder1\**" />
-    <Content Remove="TaxDemo.BUnitTests\**" />
-    <EmbeddedResource Remove="Components\NewFolder1\**" />
-    <EmbeddedResource Remove="TaxDemo.BUnitTests\**" />
-    <None Remove="Components\NewFolder1\**" />
-    <None Remove="TaxDemo.BUnitTests\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="9.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.6" />
