@@ -34,17 +34,17 @@
 - Selenium.WebDriver (Version 4.33.0)
 
 # Setup Process
-- From the TaxDemo root folder, run 'docker compose up' to launch sqlserver container and the identitycontextdb container*
-*Check the compose.yml file in the root folder for password placeholder items for the sqlserver PW and identity, replace them and adjust ports if needed.
+- From the TaxDemo root folder, run 'docker compose up' to launch sqlserver container and the identitycontextdb container.
+  - Check the compose.yml file in the root folder for password placeholder items for the sqlserver PW and identity, replace them and adjust ports if needed.
 
 - If desired, test the connection to the sqlserver container with SSMS or another provider.
 
-- Run 'dotnet ef database update' to attach the migrations to the database container or you can use Visual Studio's Connected Services Window as well
+- Run 'dotnet ef database update' to attach the migrations to the database container or you can use Visual Studio's Connected Services Window as well.
 
-- Once migrations have been applied, launch the app w/o debugging if you want to run the TaxDemo.Tests project*
-*Debug mode will work for running an app. There is an exception caught dealing with Blazor's NavManager NavigateTo() method that is a current known bug from the Blazor dev team. Continuing past the exception works fine.
+- Once migrations have been applied, launch the app w/o debugging if you want to run the TaxDemo.Tests project.
+  - Debug mode will work for running an app. There is an exception caught dealing with Blazor's NavManager NavigateTo() method that is a current known bug from the Blazor dev team. Continuing past the exception works fine.
 
 - Register with an example email and password, click the confirmation hyperlink in the account confirmation page and the site pages will be accessible afterwards.
 
-- If you wish to run the tests project, the TaxDemo.Tests/TestSetups/TestWebDriverBase.cs has two placeholder passwords for the user and conn string, adjust accordingly and port numbers as well*
-* If tests for the webdriver cannot locate the localhost address, check which port the app is defaulting to when launching w/o debugging and use that port in the TestWebDriverBase.CS file.
+- If you wish to run the tests project, the TaxDemo.Tests/TestSetups/TestWebDriverBase.cs has two placeholder passwords for the user and conn string, adjust accordingly and port numbers as well.
+  - If tests for the webdriver cannot locate the localhost address, check which port the app is defaulting to when launching w/o debugging and use that port in the TestWebDriverBase.CS file.
