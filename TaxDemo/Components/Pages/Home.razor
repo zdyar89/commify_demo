@@ -1,0 +1,26 @@
+﻿@page "/"
+@using Components.Account
+@using Microsoft.AspNetCore.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@attribute [Authorize]
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, @email !</h1>
+
+Please navigate to the calculator page on the left for tax calculations.
+
+@code {
+    private string? email;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity is { IsAuthenticated: true })
+        {
+            email = user.Identity.Name;
+        }
+    }
+}

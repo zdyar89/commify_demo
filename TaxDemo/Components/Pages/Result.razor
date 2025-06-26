@@ -1,0 +1,94 @@
+﻿@page "/result"
+@using TaxDemo.Components.Interfaces
+@using TaxDemo.Components.Services
+@inject StateContainerService stateService
+@implements IDisposable
+@inject TaxItemListService TaxItemListService
+@inject NavigationManager NavigationManager
+@inject ILogger<Result> Logger
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<PageTitle>Tax Calculator Result</PageTitle>
+
+<h1>Tax Calculator Result</h1>
+
+<EditForm FormName="salary-form"
+          OnInvalidSubmit="HandleInvalidSubmit"
+          OnValidSubmit="HandleValidSubmit"
+          Model="@salary">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <label for="salary-value">Gross Annual Salary: </label>
+    <InputNumber ID="salary-value" @bind-value="salary.SalaryAmount"></InputNumber>
+
+    <button type="submit" class="btn btn-primary" id="recalculate-button">Recalculate</button>
+</EditForm>
+
+<QuickGrid Items="@taxList" title="Tax Breakdown">
+    <PropertyColumn Property="@(item => item.Label)" Title="Description"></PropertyColumn>
+    <PropertyColumn Property="@(item => item.Value.ToString("C", new CultureInfo("en-GB")))" Title="Description"></PropertyColumn>
+</QuickGrid>
+
+@code {
+    [SupplyParameterFromForm]
+    private SalaryInfo? salary { get; set; }
+
+    private string? formErrorMessage;
+
+    private IQueryable<TaxItem>? taxList;
+
+    protected override void OnInitialized()
+    {
+        double grossSalary = stateService.Value;
+
+        ITaxForm taxBreakdown = new TaxBreakdown(grossSalary);
+        taxBreakdown.CalculateTaxItemization();
+        taxList = TaxItemListService.GetTaxList(taxBreakdown);
+
+        salary ??= new();
+    }
+
+    public class SalaryInfo
+    {
+        [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "Salary value must be greater than 0")]
+        public double SalaryAmount { get; set; }
+    }
+
+    private void HandleInvalidSubmit(EditContext editContext)
+    {
+        // Triggers when EditForm input has invalid values.
+
+        formErrorMessage = "The salary field cannot be left blank";
+        var validationErrorMessages = new ValidationMessageStore(editContext);
+        validationErrorMessages.Add(() => salary, formErrorMessage);
+        Logger.LogError("Invalid Submission Triggered By User");
+    }
+
+    private void HandleValidSubmit()
+    {
+        // Triggers when EditForm input has valid values.
+
+        try
+        {
+            stateService.SetValue(salary.SalaryAmount);
+            double grossSalary = stateService.Value;
+
+            ITaxForm taxBreakdown = new TaxBreakdown(grossSalary);
+            taxBreakdown.CalculateTaxItemization();
+            taxList = TaxItemListService.GetTaxList(taxBreakdown);
+
+            salary ??= new();
+        }
+        catch (Exception e)
+        {
+            Logger.LogError($"An error has occurred for retrieving the taxList data object: {e}");
+        }
+    }
+
+    public void Dispose()
+    {
+        stateService.OnStateChange -= StateHasChanged;
+    }
+}
