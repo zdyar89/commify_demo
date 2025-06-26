@@ -1,6 +1,7 @@
 # Commify Demo
 
-# This is a .NET 9 framework project for the Commify interview cycle utilizing Blazor Server pages/components for the frontend.
+# Description:
+- This is a .NET 9 framework project for the Commify interview cycle utilizing Blazor Server pages/components for the frontend.
 
 # Tools & Software
 - .NET 9
@@ -9,7 +10,8 @@
 - Docker w/ Docker Desktop
 - Linux or WSL if using Windows OS
 
-# Solution Name: TaxDemo
+# Solution Name:
+- TaxDemo
 
 # Projects:
 - TaxDemo
