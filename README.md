@@ -42,9 +42,12 @@
 - Run 'dotnet ef database update' to attach the migrations to the database container or you can use Visual Studio's Connected Services Window as well.
 
 - Once migrations have been applied, launch the app w/o debugging if you want to run the TaxDemo.Tests project.
+  - IISExpress was used for launching in development
   - Debug mode will work for running an app. There is an exception caught dealing with Blazor's NavManager NavigateTo() method that is a current known bug from the Blazor dev team. Continuing past the exception works fine.
 
 - Register with an example email and password, click the confirmation hyperlink in the account confirmation page and the site pages will be accessible afterwards.
 
 - If you wish to run the tests project, the TaxDemo.Tests/TestSetups/TestWebDriverBase.cs has two placeholder passwords for the user and conn string, adjust accordingly and port numbers as well.
+  - IISExpress was used for launching in development w/ port 44345
   - If tests for the webdriver cannot locate the localhost address, check which port the app is defaulting to when launching w/o debugging and use that port in the TestWebDriverBase.CS file.
+  - If you wish to run the web page tests w/o the GUI, change "chromeOptions.AddArguments("--start-maximized");" to "chromeOptions.AddArguments("--headless");" in TaxDemo.Tests/TestSetups/TestWebDriverBase.cs
